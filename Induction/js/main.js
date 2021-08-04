@@ -1,7 +1,4 @@
-(function($) {
-
-
-
+(function ($) {
     var form = $("#signup-form");
     form.validate({
         errorPlacement: function errorPlacement(error, element) {
@@ -12,7 +9,7 @@
                 email: true
             }
         },
-        onfocusout: function(element) {
+        onfocusout: function (element) {
             $(element).valid();
         },
     });
@@ -28,7 +25,7 @@
             finish: 'Finish',
             current: ''
         },
-        onStepChanging: function(event, currentIndex, newIndex) {
+        onStepChanging: function (event, currentIndex, newIndex) {
             if (currentIndex === 0) {
                 form.parent().parent().parent().append('<div class="footer footer-' + currentIndex + '"></div>');
             }
@@ -36,10 +33,17 @@
                 form.parent().parent().parent().find('.footer').removeClass('footer-0').addClass('footer-' + currentIndex + '');
             }
             if (currentIndex === 2) {
+                CountDown(10, $('#display'));
                 form.parent().parent().parent().find('.footer').removeClass('footer-1').addClass('footer-' + currentIndex + '');
             }
             if (currentIndex === 3) {
-                form.parent().parent().parent().find('.footer').removeClass('footer-2').addClass('footer-' + currentIndex + '');
+                if (isNaN(selectionValue)) {
+                    alert("Mohon untuk menyelesaikan kuisioner terlebih dahulu");
+                    return false;
+                } else {
+                    
+                    form.parent().parent().parent().find('.footer').removeClass('footer-2').addClass('footer-' + currentIndex + '');
+                }
             }
             // if(currentIndex === 4) {
             //     form.parent().parent().parent().append('<div class="footer" style="height:752px;"></div>');
@@ -47,16 +51,16 @@
             form.validate().settings.ignore = ":disabled,:hidden";
             return form.valid();
         },
-        onFinishing: function(event, currentIndex) {
+        onFinishing: function (event, currentIndex) {
             form.validate().settings.ignore = ":disabled";
             return form.valid();
         },
-        onFinished: function(event, currentIndex) {
+        onFinished: function (event, currentIndex) {
             alert('Submited');
         },
-        onStepChanged: function(event, currentIndex, priorIndex) {
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            return true
 
-            return true;
         }
     });
 
@@ -86,30 +90,30 @@
     var marginSlider = document.getElementById('slider-margin');
     if (marginSlider != undefined) {
         noUiSlider.create(marginSlider, {
-              start: [1100],
-              step: 100,
-              connect: [true, false],
-              tooltips: [true],
-              range: {
-                  'min': 100,
-                  'max': 2000
-              },
-              pips: {
-                    mode: 'values',
-                    values: [100, 2000],
-                    density: 4
-                    },
-                format: wNumb({
-                    decimals: 0,
-                    thousand: '',
-                    prefix: '$ ',
-                })
+            start: [1100],
+            step: 100,
+            connect: [true, false],
+            tooltips: [true],
+            range: {
+                'min': 100,
+                'max': 2000
+            },
+            pips: {
+                mode: 'values',
+                values: [100, 2000],
+                density: 4
+            },
+            format: wNumb({
+                decimals: 0,
+                thousand: '',
+                prefix: '$ ',
+            })
         });
         var marginMin = document.getElementById('value-lower'),
-	    marginMax = document.getElementById('value-upper');
+            marginMax = document.getElementById('value-upper');
 
-        marginSlider.noUiSlider.on('update', function ( values, handle ) {
-            if ( handle ) {
+        marginSlider.noUiSlider.on('update', function (values, handle) {
+            if (handle) {
                 marginMax.innerHTML = values[handle];
             } else {
                 marginMin.innerHTML = values[handle];
