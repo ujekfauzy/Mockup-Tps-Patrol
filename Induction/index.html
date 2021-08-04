@@ -218,18 +218,26 @@
                         <div class="fieldset-content">
                             <div class="form-group">
                                 <label for="nilai" class="form-label">Nilai</label>
-                                <input type="text" name="nilai" id="nilai" />
+                                <input type="text" name="nilai" id="nilai" value="80 (Passed)" disabled />
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="hasil" class="form-label">Hasil</label>
-                                <input type="hasil" name="hasil" id="hasil" />
-                            </div>
+                                <input type="hasil" name="hasil" id="hasil" value="Lolos" disabled />
+                            </div> -->
                             <div class="form-group">
                                 <p class="desc">
                                     Anda di nyatakan lolos dalam safety induction ini, ID Card anda akan diterbitkan setelaj proses pengambilan
                                     photo dan template wajah di TPS.
                                 </p>
 
+                           
+                                <label for="nilai" class="form-label">Foto Selfie</label>
+                                <input type="file" name="nilai" id="nilai" value="foto.jpg"  />
+                                <img src="../Content/Gambar/ImgMockup/foto.jpg" height="100" width="150">
+                            
+                                <label for="hasil" class="form-label">KTP</label>
+                                <input type="file" name="hasil" id="hasil" value="ktp.jpg"  />
+                                <img src="../Content/Gambar/ImgMockup/ktp.jpg" height="100" width="150">
                             </div>
                         </div>
                     </fieldset>

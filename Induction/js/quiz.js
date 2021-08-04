@@ -1,16 +1,33 @@
 (function () {
+    var img1 = '../Content/Gambar/ImgMockup/1.png';
+    var img2 = '../Content/Gambar/ImgMockup/2.png';
+    var img3 = '../Content/Gambar/ImgMockup/3.png';
+    var img4 = '../Content/Gambar/ImgMockup/4.jpg';
+    var img5 = '../Content/Gambar/ImgMockup/5.png';
+    var img6 = '../Content/Gambar/ImgMockup/6.png';
+    var img7 = '../Content/Gambar/ImgMockup/7.png';
+    var img8 = '../Content/Gambar/ImgMockup/8.png';
     var questions = [{
-        question: "What is 2*5?",
-        choices: [2, 5, 10, 15, 20],
+        question: "What is this picture?",
+        isQuestionImg : true,
+        imgQuestion : img1,
+        isChoiceImg : false,
+        choices: ["This is a", "This is b", "This is c", "This is d", "This is e"],
         correctAnswer: 2
     }, {
-        question: "What is 3*6?",
-        choices: [3, 6, 9, 12, 18],
+        question: "What is representation about k3?",
+        isQuestionImg : false,
+        imgQuestion : "",
+        isChoiceImg : true,
+        choices: [img2, img3, img4],
         correctAnswer: 4
     }, {
-        question: "What is 8*9?",
-        choices: [72, 99, 108, 134, 156],
-        correctAnswer: 0
+        question: "This Picture same as ?",
+        isQuestionImg : true,
+        imgQuestion : img7,
+        isChoiceImg : true,
+        choices: [img2, img3, img4, img5, img6],
+        correctAnswer: 4
     }, {
         question: "What is 1*7?",
         choices: [4, 5, 6, 7, 8],
@@ -91,9 +108,15 @@
 
         var header = $('<h2>Pertanyaan ' + (index + 1) + ':</h2>');
         qElement.append(header);
-
         var question = $('<p>').append(questions[index].question);
         qElement.append(question);
+        if (questions[index].isQuestionImg)
+        {
+            let imgsrc = `<img  width='50' height='100' src="${questions[index].imgQuestion}">`;
+            qElement.append(imgsrc);
+        }
+        
+        
 
         var radioButtons = createRadios(index);
         qElement.append(radioButtons);
@@ -109,7 +132,14 @@
         for (var i = 0; i < questions[index].choices.length; i++) {
             item = $('<li>');
             input = '<input class="radioquiz" type="radio" name="answer" value=' + i + ' />';
-            input += questions[index].choices[i];
+            if(questions[index].isChoiceImg)
+            {
+                input += `<img  width='50' height='100' src="${questions[index].choices[i]}">`;
+            }
+            else{
+                input += questions[index].choices[i];
+            }    
+            
             item.append(input);
             radioList.append(item);
         }
