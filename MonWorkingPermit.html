@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Working Permit Monitoring - GSS TPS Online</title>
+    <link rel="icon" href="/FrontEndHSSE/Content/favicon.ico" />
+    <link href="/FrontEndHSSE/Content/bootstrap.css" rel="stylesheet"/>
+<link href="/FrontEndHSSE/Content/site.css" rel="stylesheet"/>
+
+    <script src="/FrontEndHSSE/Scripts/modernizr-2.8.3.js"></script>
+
+    
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+             padding-top: 100px;
+            left: 0;
+            top: 0;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+    </style>
+
+    <link href="/FrontEndHSSE/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/FrontEndHSSE/Content/ScreenLoader.css" rel="stylesheet" />
+    <link href="/FrontEndHSSE/Content/daterangepicker.css" rel="stylesheet" />
+    <link href="/FrontEndHSSE/Content/datatables.min.css" rel="stylesheet" />
+    <link href="/FrontEndHSSE/Content/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="/FrontEndHSSE/Content/gss-css/gss-custom.css" rel="stylesheet" />
+    <style>
+        .bg {
+            /* The image used */
+            background-image: url('../../FrontEndHSSE/Content/images/bg/A_1.jpg');
+            /* Full height */
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        /* Style the buttons */
+        .btn {
+            font-size: 14px !important;
+            cursor: pointer;
+        }
+
+            .btn.active, .btn:hover {
+                color: #fff !important;
+            }
+    </style>
+</head>
+
+<body class="bg">
+    <div style="display:none" id="loadingPage" class="loading">Loading&#8230;</div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header" id="navdiv">
+                <a class="navbar-brand btn" href="/MonWorkingPermit">CHECK WORKING PERMIT</a>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="container" style="margin-top:10px!important">
+            
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Check Working Permit</div>
+    <div class="panel-body">
+        <div class="box box-primary">
+            <div class="box-header">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h5>&nbsp;Filter Data</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-success box-solid">
+                            <div class="box-body">
+                                <div class="row">
+<form action="/MonWorkingPermit" id="formFilter" method="post">                                        <label for="inputPassword3" class="col-md-2 control-label">Working Permit Id</label>
+                                        <div class="col-md-3">
+                                            
+                                                <input class="form-control text-box single-line" id="Id" maxlength="15" name="Id" placeholder="XX.XXXX.XXXXX" type="text" value="" />
+                                            
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="submit" id="prosesLaporan" class="btn btn-success"><i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search</button>
+                                        </div>
+</form>                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body">
+                <div id="target">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalShowInfo" style="z-index:1051">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-info box-solid">
+                            <div class="box-header">
+                                <h3 class="box-title">Legend</h3>
+                            </div>
+                            <div class="box-body">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td>
+                                            <button class="btn btn-warning btn-xs disabled"><i class="fa fa-pencil-square"></i></button>
+                                        </td>
+                                        <td>
+                                            <b>Edit Working Permit</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="btn btn-info btn-xs disabled"><i class="fa fa-info-circle"></i></button>
+                                        </td>
+                                        <td>
+                                            <b>More Detail</b>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-sm btn-danger pull-right" data-dismiss="modal"><span class="fa fa-close"></span>&nbsp;&nbsp;&nbsp;Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="EditWorkingPermit" class="modal fade" role="dialog" style="display:none">
+    <div class="modal-dialog" id="modaldialog">
+        <div class="modal-content">
+            <div id="MyModalContentPermit"></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalAddWorker">
+
+</div>
+
+<div class="modal fade" id="modalUpload">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="box">
+                    <div id="">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12">
+<form action="/MonWorkingPermit/Import" enctype="multipart/form-data" id="formUpload" method="post">                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <span>Select Excel / CSV File</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-4">
+                                                <input type="file" name="file" id="fileInput" class="form-control" />
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input class="btn btn-info" type="submit" value="Import" />
+                                            </div>
+                                        </div>
+</form>                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="tempworkerlist"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="row pull-right">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-window-close"></i>&nbsp;&nbsp;&nbsp;Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <hr />
+            <footer>
+                <div style="position:center">
+                    <h3 style="color:white"><b> &copy; www.tps.co.id (1.08.06.2021) </b></h3>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/FrontEndHSSE/Scripts/jquery-3.4.1.js"></script>
+
+    <script src="/FrontEndHSSE/Scripts/bootstrap.js"></script>
+
+    <script>
+        $('.active').removeClass('active');
+        var currurl = window.location.pathname;
+        var val = $('a[href="' + currurl + '"]').addClass('active');
+    </script>
+    <script src="/FrontEndHSSE/Scripts/jquery-confirm.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/moment.js"></script>
+    <script src="/FrontEndHSSE/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/daterangepicker.js"></script>
+    <script src="/FrontEndHSSE/Scripts/datatables.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/lookup.js"></script>
+    
+    <script type="text/javascript" src="/FrontEndHSSE/Scripts/lookup.js"></script>
+    
+    <script type="text/javascript">
+        $("document").ready(function () {
+           
+            //$("#formFilter").submit();
+            $('.loading').hide();
+        });
+
+        $("#formFilter").bind('submit').on("submit", function (event) {
+            event.preventDefault();
+
+            var url = $(this).attr("action");
+            var formData = $(this).serialize();
+
+            reload_table(url, formData);
+        });
+
+        function reload_table(url, data) {
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: data,
+                beforeSend: function () {
+                    $(".loading").show();
+                },
+                success: function (resp) {
+                    $(".loading").hide();
+                    $('#target').html(resp);
+                },
+                error: function (xhr) {
+                    $(".loading").hide();
+                    lookup.alertError("Internal Server Error", '', 'Information!', 1);
+                    $('#modal-danger').modal({ backdrop: 'static', keyboard: false, show: true })
+                }
+            });
+        };
+
+        function ExportToPdf() {
+            window.location.href = "/MonWorkingPermit/ExportPdf";
+        };
+
+        function ExportToExcel() {
+            var startDate = $("#startDate").val();
+            var endDate = $("#endDate").val();
+
+            window.location.href = "/MonWorkingPermit/ExportExcel/?&startDate=" + startDate + "&endDate=" + endDate;
+
+        };
+
+        function myFunction() {
+            $('#modalShowInfo').modal({ backdrop: 'static', keyboard: false, show: true })
+            $('#modalShowInfo').modal('show');
+        }
+
+        function uploadfile() {
+            document.getElementById('fileInput').value = '';
+            $("#tempworkerlist").html('');
+            $('.modal-backdrop').remove();
+            $(".loading").hide();
+            $("#modalUpload").modal({
+                backdrop: 'static',
+                keyboard: false
+            }, 'show');
+        };
+    </script>
+
+
+</body>
+</html>

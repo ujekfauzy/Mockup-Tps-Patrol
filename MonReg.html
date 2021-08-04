@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Monitoring Registration - GSS TPS Online</title>
+        <link rel="icon" href="/FrontEndHSSE/Content/favicon.ico" />
+        <link href="/FrontEndHSSE/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="/FrontEndHSSE/Content/site.css" rel="stylesheet"/>
+    
+        <script src="/FrontEndHSSE/Scripts/modernizr-2.8.3.js"></script>
+    
+        
+    
+        
+        <link href="/FrontEndHSSE/Content/gss-custom.css" rel="stylesheet" />
+        <style>
+            body {
+                text-transform: uppercase
+            }
+    
+            ::placeholder {
+                text-transform: uppercase
+            }
+    
+            label {
+                text-transform: uppercase
+            }
+        </style>
+    
+        <link href="/FrontEndHSSE/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="/FrontEndHSSE/Content/ScreenLoader.css" rel="stylesheet" />
+        <link href="/FrontEndHSSE/Content/daterangepicker.css" rel="stylesheet" />
+        <link href="/FrontEndHSSE/Content/datatables.min.css" rel="stylesheet" />
+        <link href="/FrontEndHSSE/Content/jquery-confirm.min.css" rel="stylesheet" />
+        <link href="/FrontEndHSSE/Content/gss-css/gss-custom.css" rel="stylesheet" />
+        <style>
+            .bg {
+                /* The image used */
+                background-image: url('../../FrontEndHSSE/Content/images/bg/A_1.jpg');
+                /* Full height */
+                height: 100%;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            /* Style the buttons */
+            .btn {
+                font-size: 14px !important;
+                cursor: pointer;
+            }
+    
+                .btn.active, .btn:hover {
+                    color: #fff !important;
+                }
+        </style>
+    </head>
+
+<body class="bg">
+    <div style="display:none" id="loadingPage" class="loading">Loading&#8230;</div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header" id="navdiv">
+                
+                <a class="navbar-brand btn" href="/MonReg">CHECK REGISTRATION</a>
+               
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="container" style="margin-top:10px!important">
+            
+
+<div class="panel panel-default">
+    <div class="panel-heading">Check Registration</div>
+    <div class="panel-body">
+        <div class="box full-height">
+            <div class="box-header with-border">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <h3 class="box-title"><b>Searching Registration</b></h3>
+                    </div>
+
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="col-sm-12">
+                    <h5>&nbsp;Filter Data</h5>
+                </div>
+                <div class="box-body">
+<form action="/MonReg" class="form-horizontal" id="formFilter" method="post"><input name="__RequestVerificationToken" type="hidden" value="G9ny7uycA69sNK37l2oeiALVmDtkTnrGRH8XXlP6kNnzYzSodlnMe13R1Z4qPMuUXqikba4Dle-Q9iig0wV8s5pEdYfY35S7fTpiBDhPS5Q1" />                    <div class="form-group row required">
+                        <label class="col-md-2 control-label">Filter By</label>
+                        <div class="col-md-3">
+                           <select class="form-control" data-val="true" data-val-number="The field FilterSelectedValue must be a number." data-val-required="The FilterSelectedValue field is required." id="FilterSelectedValue" name="FilterSelectedValue" required="True"><option selected="selected" value="0">Id Registration</option>
+<option value="1">Customer Code</option>
+</select>
+                        </div>
+                        <div class="col-md-3">
+                            <input class="form-control text-box single-line" id="Id" maxlength="16" name="Id" placeholder="keyword" type="text" value="" />
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" id="btnSearch" class="btn btn-success btn-block"><i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search</button>
+                        </div>
+                    </div>
+</form>
+                </div>
+
+            </div>
+            <div class="box-footer" id="target">
+
+            </div>
+            
+        </div>
+        <div class="modal" tabindex="-1" role="dialog" id="modalShowMore" style="z-index:1051">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">More Detail</h4>
+                    </div>
+                    <div class="modal-body more-detail">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <hr />
+            <footer>
+                <div style="position:center">
+                    <h3 style="color:white"><b> &copy; www.tps.co.id (1.08.06.2021) </b></h3>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/FrontEndHSSE/Scripts/jquery-3.4.1.js"></script>
+
+    <script src="/FrontEndHSSE/Scripts/bootstrap.js"></script>
+
+    <script>
+        $('.active').removeClass('active');
+        var currurl = window.location.pathname;
+        var val = $('a[href="' + currurl + '"]').addClass('active');
+    </script>
+    <script src="/FrontEndHSSE/Scripts/jquery-confirm.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/moment.js"></script>
+    <script src="/FrontEndHSSE/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/daterangepicker.js"></script>
+    <script src="/FrontEndHSSE/Scripts/datatables.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/lookup.js"></script>
+    
+    
+    <script type="text/javascript">
+
+        $("document").ready(function () {
+            $(document).ready(() => {
+                lookup.customTable({
+                    responsive: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    addClass: "table-hover"
+                });
+            });
+            //$("#formFilter").submit();
+        });
+        $("#formFilter").bind('submit').on("submit", function (event) {
+            event.preventDefault();
+            var url = $(this).attr("action");
+            var formData = $(this).serialize();
+            reload_table(url, formData);
+        });
+        function reload_table(url, data) {
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: data,
+                beforeSend: function () {
+                    $(".loading").show();
+                },
+                success: function (resp) {
+                    $(".loading").hide();
+                    $('#target').html(resp);
+                },
+                error: function (xhr) {
+                    $(".loading").hide();
+                    lookup.alertError("Internal Server Error");
+                }
+            })
+        }
+    </script>
+
+
+</body>
+</html>

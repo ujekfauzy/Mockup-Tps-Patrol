@@ -1,0 +1,14 @@
+{"records":[{"APP_ID":"API-000008","APP_NAMA":"CS Building 1st Floor","APP_DESC":"Pilot Service
+Room","APP_AKTIF":true,"APP_READER":[{"READER_ID":"REA-06","READER_NAMA":"Gd Lama Lt. 1 (Pilot
+Service)","READER_IP":"172.19.203.83"}]},{"APP_ID":"API-03","APP_NAMA":"Administration Bld 2nd Floor","APP_DESC":"Gedung
+Baru Lt. 2","APP_AKTIF":true,"APP_READER":[{"READER_ID":"REA-02","READER_NAMA":"Gd Baru Office Lt
+2","READER_IP":"172.19.203.74"}]},{"APP_ID":"API-04","APP_NAMA":"Administration Bld 1st Floor (HSSE)","APP_DESC":"Gedung
+Baru Ruang HSSE","APP_AKTIF":true,"APP_READER":[{"READER_ID":"REA-01","READER_NAMA":"Gd Baru
+(HSSE)","READER_IP":"172.19.203.73"}]},{"APP_ID":"API-05","APP_NAMA":"Administration Bld 3rd Floor
+(Director)","APP_DESC":"Gedung Baru Direktur","APP_AKTIF":true,"APP_READER":[{"READER_ID":"REA-03","READER_NAMA":"Gd
+Baru Direktur Lt 3","READER_IP":"172.19.203.75"}]},{"APP_ID":"API-06","APP_NAMA":"CS Building 2nd Floor
+(Operation)","APP_DESC":"Gedung Lama Operation","APP_AKTIF":true,"APP_READER":[{"READER_ID":"REA-04","READER_NAMA":"Gd
+Lama Lt 2 (Operation)","READER_IP":"172.19.203.76"}]},{"APP_ID":"API-07","APP_NAMA":"CS Building 3rd Floor
+(Engineering)","APP_DESC":"Gedung Lama
+Engineering","APP_AKTIF":true,"APP_READER":[{"READER_ID":"REA-05","READER_NAMA":"Gd Lama Lt 3
+(Engineering)","READER_IP":"172.19.203.77"}]}],"total":6}

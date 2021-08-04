@@ -1,0 +1,48 @@
+﻿.treeview-menu > li {
+    margin: 0 0 0 18px !important;
+}
+
+.example-modal .modal {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    display: block;
+    z-index: 1;
+}
+
+.someBlock {
+    background: #fff no-repeat 50% 50%;
+    background-size: contain;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    height: 50vh;
+    margin: 5vh auto;
+    position: relative;
+}
+
+.example-modal .modal {
+    background: transparent !important;
+}
+
+td.highlight {
+    background-color: whitesmoke !important;
+}
+
+tr.selected {
+    background-color: #a6a6a6;
+}
+
+.form-group.required .form-control-label:after, .form-group.required .control-label:after {
+    content: " *";
+    color: red;
+}
+
+.form-group.required-left .form-control-label:before, .form-group.required-left .control-label:before {
+    content: "* ";
+    color: red;
+}
+
+.sizeModal {
+    width: 1250px; 
+}

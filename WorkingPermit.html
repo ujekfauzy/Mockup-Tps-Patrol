@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Working Permit - GSS TPS Online</title>
+    <link rel="icon" href="/FrontEndHSSE/Content/favicon.ico" />
+    <link href="/FrontEndHSSE/Content/bootstrap.css" rel="stylesheet"/>
+<link href="/FrontEndHSSE/Content/site.css" rel="stylesheet"/>
+
+    <script src="/FrontEndHSSE/Scripts/modernizr-2.8.3.js"></script>
+
+    
+    <style>
+        .modal-dialog {
+            /*position: fixed;*/
+            /*margin: 0;*/
+            width: 65%;
+            height: 50%;
+            padding: 0;
+        }
+
+        .modal-header {
+            border-bottom: 0 none;
+        }
+
+        .modal-footer {
+            border-top: 0 none;
+        }
+
+        body {
+            text-transform: uppercase
+        }
+
+        ::placeholder {
+            text-transform: uppercase
+        }
+
+        label {
+            text-transform: uppercase
+        }
+
+        input {
+            text-transform: uppercase
+        }
+
+        .form-control {
+            text-transform: uppercase
+        }
+    </style>
+
+    <link href="/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/ScreenLoader.css" rel="stylesheet" />
+    <link href="/Content/daterangepicker.css" rel="stylesheet" />
+    <link href="/Content/datatables.min.css" rel="stylesheet" />
+    <link href="/Content/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="/Content/gss-css/gss-custom.css" rel="stylesheet" />
+    <style>
+        .bg {
+            /* The image used */
+            background-image: url('../../FrontEndHSSE/Content/images/bg/A_1.jpg');
+            /* Full height */
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        /* Style the buttons */
+        .btn {
+            font-size: 14px !important;
+            cursor: pointer;
+        }
+
+            .btn.active, .btn:hover {
+                color: #fff !important;
+            }
+    </style>
+</head>
+
+<body class="bg">
+    <div style="display:none" id="loadingPage" class="loading">Loading&#8230;</div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header" id="navdiv">
+                <a class="navbar-brand btn" href="/TworkingPermit">WORKING PERMIT</a>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="container" style="margin-top:10px!important">
+            
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="box-header with-border">
+            <h3 class="box-title">Working Permit</h3>
+        </div>
+<form action="/TWorkingPermit" class="form-horizontal" enctype="multipart/form-data" id="wokingpermitform" method="post" name="wokingpermitform"><input name="__RequestVerificationToken" type="hidden" value="_-ZBtI7U1OJhvbj_okD2wuRNuhCD559lR6So587PfQm8FtV8j8vB4bUNcl3Z7wpEZMIFSej0Jty-Y14TYnIz8rjxeGNUnJD5TPIGgVQ_LaY1" />            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Working Title</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="ProjectWorkingPermitNewRow_WorkingTitle" name="ProjectWorkingPermitNewRow.WorkingTitle" required="True" type="text" value="" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_WorkingTitle_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Location</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="ProjectWorkingPermitNewRow_Location" name="ProjectWorkingPermitNewRow.Location" required="True" type="text" value="" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_Location_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Start Date</label>
+                            <div class="col-sm-8">
+                                <input class="form-control datepicker text-box single-line" data-date-format="  dd M yyyy" id="StartDate" name="ProjectWorkingPermitNewRow.StartDate" placeholder="Start Date" type="datetime" value="8/3/2021 9:58:19 AM" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_StartDate_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Finish Date</label>
+                            <div class="col-sm-8">
+                                <input class="form-control datepicker text-box single-line" data-date-format="  dd M yyyy" id="EndDate" name="ProjectWorkingPermitNewRow.FinishDate" placeholder="End Date" type="datetime" value="8/4/2021 9:58:19 AM" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_FinishDate_validationMessage"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Vendor</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="ProjectWorkingPermitNewRow_Vendor" name="ProjectWorkingPermitNewRow.Vendor" required="True" type="text" value="" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_Vendor_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Vendor PIC</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="ProjectWorkingPermitNewRow_VendorPIC" name="ProjectWorkingPermitNewRow.VendorPIC" required="True" type="text" value="" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_VendorPIC_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Vendor PIC Mail</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="ProjectWorkingPermitNewRow_VendorPICMail" name="ProjectWorkingPermitNewRow.VendorPICMail" required="True" type="email" value="" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_VendorPICMail_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Safety Officer</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="ProjectWorkingPermitNewRow_SafetyOfficer" name="ProjectWorkingPermitNewRow.SafetyOfficer" required="True" type="text" value="" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_SafetyOfficer_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row required-left">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Project Manager</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="ProjectWorkingPermitNewRow_Manager" name="ProjectWorkingPermitNewRow.Manager" required="True" type="text" value="" />
+                                <span class="field-validation-valid text-danger" id="ProjectWorkingPermitNewRow_Manager_validationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Note</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" cols="20" id="ProjectWorkingPermitNewRow_Desc" name="ProjectWorkingPermitNewRow.Desc" rows="2">
+</textarea>
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-success">
+                                    <div class="box-header with-border">
+                                        <h6 class="box-title">Worker&nbsp;<font color="red">*</font></h6>
+                                        <div class="box-tools pull-right">
+                                            <!-- Collapse Button -->
+                                            <button type="button" class="btn btn-primary btn-xs" onclick='addWorker("")'>
+                                                <span class="fa fa-plus-square"></span>&nbsp;&nbsp;&nbsp;<font style="font-family:'Trebuchet MS'">Add</font>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-md-12" id="target-tbl-workerlist">
+                                                <table id="tbl-workerlist" class="table custom-table">
+                                                    <thead>
+                                                        <tr class="bg-blue-gradient">
+                                                            <th>NO KTP</th>
+                                                            <th>Name</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-md-7">
+                    <div class="box box-success">
+                        <div class="box-header with-border">
+                            <h6 class="box-title">Safety Tools</h6>
+                        </div>
+                        <div class="box-body">
+
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Tools Description</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" cols="20" id="ProjectWorkingPermitNewRow_ToolsDesc" name="ProjectWorkingPermitNewRow.ToolsDesc" rows="2">
+</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box box-success">
+                        <div class="box-header with-border">
+                            <h6 class="box-title">Documentation / Photo (Must Be Pdf Or Img)</h6>
+                        </div>
+                        <div class="box-body">
+
+                                <div class="form-group row required - left">
+                                    <label for="inputPassword3" class="col-sm-4 control-label">File Scan JSA</label>
+                                    <div class="col-sm-8">
+<input accept="image/jpeg, image/png, application/pdf" class="form-control" id="FileDocs_0_" name="FileDocs[0]" required="required" type="file" value="" />
+                                        
+                                        <label for="inputPassword3" class="control-label">File Note</label>
+                                        <input Value="File Scan JSA" class="form-control" id="FileNotes_0_" name="FileNotes[0]" type="text" value="" />
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group row required - left">
+                                    <label for="inputPassword3" class="col-sm-4 control-label">File Scan SKKB</label>
+                                    <div class="col-sm-8">
+<input accept="image/jpeg, image/png, application/pdf" class="form-control" id="FileDocs_1_" name="FileDocs[1]" required="required" type="file" value="" />
+                                        
+                                        <label for="inputPassword3" class="control-label">File Note</label>
+                                        <input Value="File Scan SKKB" class="form-control" id="FileNotes_1_" name="FileNotes[1]" type="text" value="" />
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group row ">
+                                    <label for="inputPassword3" class="col-sm-4 control-label">Support Files 1 (File Registration, certificate of health, etc)</label>
+                                    <div class="col-sm-8">
+<input accept="image/jpeg, image/png, application/pdf" class="form-control" id="FileDocs_2_" name="FileDocs[2]" type="file" value="" />
+                                        
+                                        <label for="inputPassword3" class="control-label">File Note</label>
+                                        <input Value="Support Files 1 (File Registration, certificate of health, etc)" class="form-control" id="FileNotes_2_" name="FileNotes[2]" type="text" value="" />
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group row ">
+                                    <label for="inputPassword3" class="col-sm-4 control-label">Support Files 2 (File Registration, certificate of health, etc)</label>
+                                    <div class="col-sm-8">
+<input accept="image/jpeg, image/png, application/pdf" class="form-control" id="FileDocs_3_" name="FileDocs[3]" type="file" value="" />
+                                        
+                                        <label for="inputPassword3" class="control-label">File Note</label>
+                                        <input Value="Support Files 2 (File Registration, certificate of health, etc)" class="form-control" id="FileNotes_3_" name="FileNotes[3]" type="text" value="" />
+                                        
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pull-right">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success submit"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;Submit</button>
+                    <button type="button" onclick="location.reload()" class="btn btn-warning"><i class="fa fa-refresh"></i>&nbsp;&nbsp;&nbsp;Clear</button>
+                </div>
+            </div>
+        </div>
+</form><script type="text/javascript">
+//<![CDATA[
+if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+window.mvcClientValidationMetadata.push({"Fields":[{"FieldName":"ProjectWorkingPermitNewRow.WorkingTitle","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_WorkingTitle_validationMessage","ValidationRules":[]},{"FieldName":"ProjectWorkingPermitNewRow.Location","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_Location_validationMessage","ValidationRules":[]},{"FieldName":"ProjectWorkingPermitNewRow.StartDate","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_StartDate_validationMessage","ValidationRules":[{"ErrorMessage":"The StartDate field is required.","ValidationParameters":{},"ValidationType":"required"},{"ErrorMessage":"The field StartDate must be a date.","ValidationParameters":{},"ValidationType":"date"}]},{"FieldName":"ProjectWorkingPermitNewRow.FinishDate","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_FinishDate_validationMessage","ValidationRules":[{"ErrorMessage":"The FinishDate field is required.","ValidationParameters":{},"ValidationType":"required"},{"ErrorMessage":"The field FinishDate must be a date.","ValidationParameters":{},"ValidationType":"date"}]},{"FieldName":"ProjectWorkingPermitNewRow.Vendor","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_Vendor_validationMessage","ValidationRules":[]},{"FieldName":"ProjectWorkingPermitNewRow.VendorPIC","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_VendorPIC_validationMessage","ValidationRules":[]},{"FieldName":"ProjectWorkingPermitNewRow.VendorPICMail","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_VendorPICMail_validationMessage","ValidationRules":[]},{"FieldName":"ProjectWorkingPermitNewRow.SafetyOfficer","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_SafetyOfficer_validationMessage","ValidationRules":[]},{"FieldName":"ProjectWorkingPermitNewRow.Manager","ReplaceValidationMessageContents":true,"ValidationMessageId":"ProjectWorkingPermitNewRow_Manager_validationMessage","ValidationRules":[]}],"FormId":null,"ReplaceValidationSummary":false});
+//]]>
+</script>    </div>
+
+    </div>
+
+    <div class="modal fade" id="modalUpload">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+<form action="/TWorkingPermit/Import" enctype="multipart/form-data" id="formUpload" method="post">                                            <div class="form-group row">
+                                                <div class="col-md-12">
+                                                    <span>Select Excel / CSV File</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-md-4">
+                                                    <input type="file" name="file" id="fileInput" class="form-control" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input class="btn btn-info" type="submit" value="Draw" />
+                                                </div>
+                                            </div>
+</form><script type="text/javascript">
+//<![CDATA[
+if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+window.mvcClientValidationMetadata.push({"Fields":[],"FormId":"formUpload","ReplaceValidationSummary":false});
+//]]>
+</script>                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="tempworkerlist"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <div class="row pull-right">
+                                    <button type="button" class="btn btn-success" id="btnimport" onclick="drawWorkerList();"><i class="fa fa-upload"></i>&nbsp;&nbsp;&nbsp;Import</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-window-close"></i>&nbsp;&nbsp;&nbsp;Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAddWorker">
+    </div>
+    <div class="modal fade" id="modalBrowsePIC">
+        <div class="modal-dialog modal-dialog-centered" id="dialogModalPic">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="target-contentModalBrowsePIC"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-close"></span>&nbsp;&nbsp;&nbsp;Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <hr />
+            <footer>
+                <div style="position:center">
+                    <h3 style="color:white"><b> &copy; www.tps.co.id (1.08.06.2021) </b></h3>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/FrontEndHSSE/Scripts/jquery-3.4.1.js"></script>
+
+    <script src="/FrontEndHSSE/Scripts/bootstrap.js"></script>
+
+    <script>
+        $('.active').removeClass('active');
+        var currurl = window.location.pathname;
+        var val = $('a[href="' + currurl + '"]').addClass('active');
+    </script>
+    <script src="/FrontEndHSSE/Scripts/jquery-confirm.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/moment.js"></script>
+    <script src="/FrontEndHSSE/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/daterangepicker.js"></script>
+    <script src="/FrontEndHSSE/Scripts/datatables.min.js"></script>
+    <script src="/FrontEndHSSE/Scripts/lookup.js"></script>
+    
+        <script src="/FrontEndHSSE/Scripts/lookup.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('.loading').hide();
+
+            lookup.customTable({
+                responsive: false,
+                bFilter: false,
+                addClass: "table-hover",
+                paging: false
+
+            });
+            var date = new Date();
+            $('#StartDate').datepicker("setDate", date);
+            $('#EndDate').datepicker("setDate", date);
+            
+
+            $("#wokingpermitform").bind('submit').on("submit", function (event) {
+                event.preventDefault();
+                var url = $(this).attr("action");
+                var formSerialize = $(this).serialize();
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: formData,
+                    dataType: "JSON",
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () { $(".loading").show() },
+                    complete: function () { $(".loading").hide(); },
+                    success: function (resp) {
+                        if (resp.success) {
+                            $(".loading").hide()
+
+                            $("#wokingpermitform")[0].reset();
+
+                            reload_tbl_indexworkerlist(true);
+
+                            lookup.alertSuccess(resp.message, '/TworkingPermit/Index')
+                        }
+                        else {
+                            $(".loading").hide()
+                            lookup.alertError(resp.message, '', resp.title, resp.status);
+                        }
+                    }
+                })
+            });
+
+            $("#formUpload").bind('submit').on("submit", function (event) {
+                event.preventDefault();
+                var url = $(this).attr("action");
+                var formSerialize = $(this).serialize();
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () { $(".loading").show() },
+                    complete: function () { $(".loading").hide(); },
+                    success: function (data) {
+                        //$(".loading").hide();
+                        if (data != null) {
+                            $("#tempworkerlist").html(data);
+                            document.getElementById('btnimport').disabled = false;
+                        }
+                        //$("#modalUpload").modal('hide');
+                        //document.getElementById('fileInput').value = '';
+
+                    },
+                    error: function (resp) {
+                        $(".loading").hide();
+                        lookup.alertError(resp.statusText, '', 'Information!', 1);
+                        $("#modalUpload").modal('hide');
+                        document.getElementById('fileInput').value = '';
+                    }
+                })
+            });
+        });
+         var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+    $(':file').on('change', function () {
+        var currentfile = $(this);
+        $($(this)[0].files).each(function () {
+            if (lookup.validateMaxFileSize($(this)[0])) {
+                lookup.alertError("max file size image is 1MB");
+                currentfile.val('');
+            } else {
+
+            }
+        });
+    }).change();
+        $("#btnSubmit").click(function (event) {
+            event.preventDefault();
+
+            //if ($("#wokingpermitform")[0].checkValidity()) {
+                $("#wokingpermitform").submit();
+            //}
+        });
+
+        function reload_tbl_indexworkerlist(set_empty) {
+            $.ajax({
+                url: '/TWorkingPermit/GetIndexWorkerList',
+                data: { set_empty: set_empty },
+                type: 'GET',
+                success: function (response) {
+                    $('div.target-tbl-workerlist').html(response);
+                }
+            });
+        }
+
+        function addWorker(Id) {
+            $('.modal-backdrop').remove();
+
+            $.ajax({
+                type: "GET",
+                url: "/TWorkingPermit/AddWorker",
+                data: { id: Id },
+                beforeSend: function () { $(".loading").show(); },
+                complete: function () { $(".loading").hide(); },
+                success: function (data) {
+                    $(".loading").hide();
+
+                    $('#modalAddWorker').html(data);
+
+                    $("#modalAddWorker").modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    }, 'show');
+                },
+                error: function (resp) {
+                    $(".loading").hide();
+                    $('.select2.worker').prop('disabled', false).val('0').trigger('change');
+                    $('.worker').val('');
+                    $('.worker').prop('readOnly', false);
+                }
+            })
+        }
+        function uploadfile() {
+            document.getElementById('fileInput').value = '';
+            document.getElementById('btnimport').disabled = true;
+            $("#tempworkerlist").html('');
+           $('.modal-backdrop').remove();
+           $(".loading").hide();
+            $("#modalUpload").modal({
+               backdrop: 'static',
+               keyboard: false
+           }, 'show');
+        };
+
+        function findPIC() {
+            $('.modal-backdrop').remove();
+
+            $.ajax({
+                type: "GET",
+                url: "/TWorkingPermit/FindPIC",
+                //data: { Id: Id },
+                beforeSend: function () { $(".loading").show(); },
+                complete: function () { $(".loading").hide(); },
+                success: function (data) {
+                    $(".loading").hide();
+
+                    $('#target-contentModalBrowsePIC').html(data);
+
+                    $("#modalBrowsePIC").modal({
+                        backdrop: 'static',
+                        keyboard: false,
+                        show: 'show'
+                    });
+
+                    //$('#ProjectWorkingPermitNewRow_TPSPIC').val(data.Id);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    $(".loading").hide();
+
+                    var msg = JSON.parse(xhr.responseText);
+                }
+            })
+        }
+
+        function onchoose(id, name) {
+            $("#ProjectWorkingPermitNewRow_TPSPIC").val(id);
+            $("#picName").val(name);
+
+            $('.modal-backdrop').remove();
+
+            $("#modalBrowsePIC").modal('hide');
+        };
+
+        function drawWorkerList() {
+            $.ajax({
+                type: "POST",
+                url: "/TWorkingPermit/DrawTableFromExcelCsv",
+                //data: { Id: Id },
+                beforeSend: function () { $(".loading").show(); },
+                complete: function () { $(".loading").hide(); },
+                success: function (data) {
+                    $(".loading").hide();
+                    $("#target-tbl-workerlist").html(data);
+                    $("#modalUpload").modal('hide');
+                    document.getElementById('fileInput').value = '';
+                },
+                error: function (resp) {
+                    $(".loading").hide();
+                    lookup.alertError(resp.statusText, '', 'Information!', 1);
+                    $("#modalUpload").modal('hide');
+                    document.getElementById('fileInput').value = '';
+                }
+            });
+        }
+        </script>
+    
+
+</body>
+</html>
