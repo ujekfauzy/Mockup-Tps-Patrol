@@ -190,6 +190,18 @@ a {
                 box-shadow: 0 0 5px #b0ec0c, 0 0 25px #b0ec0c, 0 0 50px #b0ec0c, 0 0 100px #b0ec0c;
                 color: #fff;
             }
+.btn-5 {
+            background: transparent;
+                border: 2px solid #b0ec0c;
+                color: #b0ec0c;
+        }
+            
+        .btn-5:hover {
+                background: #eb8a0b;
+                border: 2px solid #eb8a0b;
+                box-shadow: 0 0 5px #eb8a0b, 0 0 25px #eb8a0b, 0 0 50px #eb8a0b, 0 0 100px #eb8a0b;
+                color: #fff;
+                }
 
 @media only screen and (max-width: 1199px) {
     .content h1 {
