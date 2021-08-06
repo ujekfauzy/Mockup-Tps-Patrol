@@ -217,29 +217,10 @@
                     }
                 })
             });
-            $('#txtCustomer').on('keypress', function (e) {
-                if (e.which == 13) {
-                    e.preventDefault();
-                    if (this.value == null && this.value == '') {
-                        lookup.alertError('Customer ID must be filled');
-                        return false;
-                    }
-                    document.getElementById("txtCustomer").readOnly = true;
-                    loadSyarat(this.value);
-                }
-            });
             $(".resetform").click(() => {
                 resetForm();
             });
         });
-
-        function searchCustomer(custid) {
-            if (custid == null && custid == '') {
-                lookup.alertError('Customer ID must be filled');
-                return false;
-            }
-            loadSyarat(custid);
-        }
 
         function resetForm() {
             document.getElementsByClassName('target')[0].innerHTML = "";
@@ -249,41 +230,6 @@
             $("#custName").html("-");
             $("#ddlcustomer, #ddldokumen").val("").trigger('change');
         }
-
-        function enabledfield(value) {
-            console.log(value);
-            if (value !== '') {
-                $("#regid").prop("disabled", false);
-            } else {
-                $("#regid").prop("disabled", true);
-            }
-        };
-        function loadSyarat(custid) {
-            $.ajax({
-                url: '/TRegistrasi/_DokumenSyarat',
-                data: { id: custid },
-                beforeSend: function () {
-                    $(".loading").show()
-                },
-                success: function (response) {
-                    if (custid !== "") {
-                        $(".loading").hide();
-                        $('div.target').html(response);
-                        $('.disabled').attr('disabled', false);
-                    } else {
-                        $(".loading").hide();
-                        $('div.target').empty();
-                        resetForm();
-                    }
-
-                },
-                error: function (xhr) {
-                    $(".loading").hide();
-                    resetForm();
-                    lookup.alertError("Customer Not Found");
-                }
-            });
-        };
     </script>
 
 
