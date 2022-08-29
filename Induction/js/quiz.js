@@ -112,7 +112,7 @@
         qElement.append(question);
         if (questions[index].isQuestionImg)
         {
-            let imgsrc = `<img  width='50' height='100' src="${questions[index].imgQuestion}">`;
+            let imgsrc = `<img  width='125' height='150' src="${questions[index].imgQuestion}">`;
             qElement.append(imgsrc);
         }
         
@@ -134,7 +134,7 @@
             input = '<input class="radioquiz" type="radio" name="answer" value=' + i + ' />';
             if(questions[index].isChoiceImg)
             {
-                input += `<img  width='50' height='100' src="${questions[index].choices[i]}">`;
+                input += `<img  width='125' height='150' src="${questions[index].choices[i]}">`;
             }
             else{
                 input += questions[index].choices[i];

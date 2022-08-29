@@ -6,12 +6,12 @@
 
     <title>SecurityPatrol - GSS TPS Online</title>
     <link rel="icon" href="/FrontEndHSSE/Content/favicon.ico" />
-    <link href="/FrontEndHSSE/Content/bootstrap.css" rel="stylesheet"/>
-<link href="/FrontEndHSSE/Content/site.css" rel="stylesheet"/>
+    <link href="FrontEndHSSE/Content/bootstrap.css" rel="stylesheet" />
+    <link href=FrontEndHSSE/Content/site.css" rel="stylesheet" />
 
-    <script src="/FrontEndHSSE/Scripts/modernizr-2.8.3.js"></script>
+    <script src="FrontEndHSSE/Scripts/modernizr-2.8.3.js"></script>
 
-    <link href="/FrontEndHSSE/Content/gss-custom.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/gss-custom.css" rel="stylesheet" />
     <style>
         body {
             text-transform: uppercase
@@ -26,16 +26,16 @@
         }
     </style>
 
-    <link href="/FrontEndHSSE/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="/FrontEndHSSE/Content/ScreenLoader.css" rel="stylesheet" />
-    <link href="/FrontEndHSSE/Content/daterangepicker.css" rel="stylesheet" />
-    <link href="/FrontEndHSSE/Content/datatables.min.css" rel="stylesheet" />
-    <link href="/FrontEndHSSE/Content/jquery-confirm.min.css" rel="stylesheet" />
-    <link href="/FrontEndHSSE/Content/gss-css/gss-custom.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/ScreenLoader.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/daterangepicker.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/datatables.min.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/gss-css/gss-custom.css" rel="stylesheet" />
     <style>
         .bg {
             /* The image used */
-            background-image: url('../../FrontEndHSSE/Content/images/bg/A_1.jpg');
+            background-image: url('FrontEndHSSE/Content/images/bg/A_1.jpg');
             /* Full height */
             height: 100%;
             background-position: center center;
@@ -57,108 +57,100 @@
 
 <body class="bg">
     <div style="display:none" id="loadingPage" class="loading">Loading&#8230;</div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!--<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header" id="navdiv">
                 <a class="navbar-brand btn" href="/">SecurityPatrol</a>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="container body-content">
-        <div class="container" style="margin-top:10px!important">
-            
+        <div class="container" style="margin-top:100px!important">
 
-<div class="panel panel-default">
-    <div class="panel-heading">SECURITY PATROL FORM</div>
-    <div class="panel-body">
-<form action="/" class="form-horizontal" enctype="multipart/form-data" id="form" method="post"><input name="__RequestVerificationToken" type="hidden" value="1_FxhGCLXINYl_yncUG9E3IUx6Ygl4Zq6mWZQwNNOB9i2e4xMMxFb9kZiLJOaLIu6vrKChAiCVqGZV9ni9J3ECHpXX4fJAnNw_e0cLZdbV81" />            <div class="col-md-12">
-                <span class="text-danger"><div class="validation-summary-valid" id="validationSummary"><ul><li style="display:none"></li>
-</ul></div></span>
-                <div class="form-group required">
-                    <label class="col-sm-4 form-control-label" for="CUSTOMER">Customer</label>
-                    <div class="col-md-2">
-                        <input class="form-control" id="txtCustomer" maxlength="5" name="Customer.Id" placeholder="Enter Customer ID" required="True" type="text" value="" />
-                    </div>
-                </div>
-                <div class="form-group ">
 
-                    <label class="col-sm-4 form-control-label" for="Customer_Name">Customer Name</label>
+            <div class="panel panel-default">
+                <div class="panel-heading">Input Form</div>
+                <div class="panel-body">
+                    <form action="/" class="form-horizontal" enctype="multipart/form-data" id="form" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="1_FxhGCLXINYl_yncUG9E3IUx6Ygl4Zq6mWZQwNNOB9i2e4xMMxFb9kZiLJOaLIu6vrKChAiCVqGZV9ni9J3ECHpXX4fJAnNw_e0cLZdbV81" />
+                        <div class="col-md-12">
+                            <span class="text-danger">
+                                <div class="validation-summary-valid" id="validationSummary">
+                                    <ul>
+                                        <li style="display:none"></li>
+                                    </ul>
+                                </div>
+                            </span>
+                            <div class="form-group required">
+                                <label class="col-sm-4 form-control-label" for="event">Event</label>
+                                <div class="col-md-6">
+                                    <!--<input class="form-control" id="event" maxlength="5" name="Event" placeholder="Enter Event" required="True" type="text" value="" />-->
+                                    <select name="event" id="event" class="form-control">
+                                        <option value="1">Shift 1 (9 Oktokber 2021)</option>
+                                        <option value="2">Shift 2 (9 Oktokber 2021)</option>
+                                        <option value="3">Shift 3 (9 Oktokber 2021)</option>
+                                        <option value="4">Shift 4 (9 Oktokber 2021)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="col-sm-4 form-control-label" for="item">Item</label>
+                                <div class="col-md-6">
+                                    <!--<input class="form-control" id="event" maxlength="5" name="Event" placeholder="Enter Event" required="True" type="text" value="" />-->
+                                    <select name="item" id="item" class="form-control">
+                                        <option value="1">Handpan (Gate Impor)</option>
+                                        <option value="2">-</option>
+                                        <option value="3">-</option>
+                                        <option value="4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row required">
+                                <label class="col-sm-4 form-control-label" for="doc1">Doc 1</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" id="doc1" name="doc1" placeholder="Fill number id as document type" required type="file" value="" />
+                                    <span class="field-validation-valid text-danger" id="doc1_validationMessage"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row required">
+                                <label class="col-sm-4 form-control-label" for="doc2">Doc 2</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" id="doc2" name="doc2" placeholder="Fill number id as document type" required type="file" value="" />
+                                    <span class="field-validation-valid text-danger" id="doc2_validationMessage"></span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="col-sm-4 form-control-label" for="status">Status</label>
+                                <div class="col-md-6">
+                                    <!--<input class="form-control" id="event" maxlength="5" name="Event" placeholder="Enter Event" required="True" type="text" value="" />-->
+                                    <select name="item" id="status" class="form-control">
+                                        <option value="1">Baik</option>
+                                        <option value="2">Tidak Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row required">
+                                <label class="col-sm-4 form-control-label" for="Description">Description</label>
+                                <div class="col-sm-7">
+                                    <textarea class="form-control" cols="20" id="Description" name="Description" placeholder="" required="True" rows="2">
+                                    </textarea>
+                                    <span class="field-validation-valid text-danger" id="Description_validationMessage"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="row pull-right">
+                                <div class="col-md-12">
+                                    <button type="submit" id="process" class="btn btn-success submit">SUBMIT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <script type="text/javascript">
 
-                    <label class="col-sm-8 form-control-label" id="custName">-</label>
-
-                </div>
-                <div id="customer-target">
-                    <div class="form-group row required">
-                        <label class="col-sm-4 form-control-label" for="DOCUMENT_TYPE">DOCUMENT TYPE</label>
-                        <div class="col-sm-3">
-                            <select class="form-control disabled" id="ddldokumen" maxlength="20" name="Dokumen.Id" onchange="enabledfield(this.value);" required="True"><option value="">-- CHOOSE DOCUMENT --</option>
-<option value="1">KTP</option>
-<option value="5">SIM</option>
-<option value="8">TES DOKUMEN</option>
-<option value="6">PASSPORT</option>
-</select>
-                            <span class="field-validation-valid text-danger" id="Dokumen_Id_validationMessage"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row required">
-                        <label class="col-sm-4 form-control-label" for="NUMBER_ID_KTP_NUMBER_PASPOR">NUMBER ID KTP/NUMBER PASPOR</label>
-                        <div class="col-sm-3">
-                            <input class="form-control disabled" disabled="True" id="regid" name="Registration.NoID" placeholder="Fill number id as document type" required="True" type="text" value="" />
-                            <span class="field-validation-valid text-danger" id="Registration_NoID_validationMessage"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row required">
-                        <label class="col-sm-4 form-control-label" for="NAME">NAME</label>
-                        <div class="col-sm-8">
-                            <textarea class="form-control disabled" cols="20" id="Registration_Nama" name="Registration.Nama" placeholder="Fill name as identity card (KTP/SIM)" required="True" rows="2" style="text-transform:uppercase">
-</textarea>
-                            <span class="field-validation-valid text-danger" id="Registration_Nama_validationMessage"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row required">
-                        <label class="col-sm-4 form-control-label" for="ADDRESS">ADDRESS</label>
-                        <div class="col-sm-7">
-                            <textarea class="form-control disabled" cols="20" id="Registration_Alamat" name="Registration.Alamat" placeholder="Fill address as identity card (KTP/SIM)" required="True" rows="2">
-</textarea>
-                            <span class="field-validation-valid text-danger" id="Registration_Alamat_validationMessage"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row required">
-                        <label class="col-sm-4 form-control-label" for="PHONE">PHONE</label>
-                        <div class="col-sm-3">
-                            <input class="form-control disabled" id="Registration_Telp" maxlength="16" name="Registration.Telp" placeholder="Fill with active phone number" required="True" type="text" value="" />
-                            <span class="field-validation-valid text-danger" id="Registration_Telp_validationMessage"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row required">
-                        <label class="col-sm-4 form-control-label" for="EMAIL_OFFICE">EMAIL OFFICE</label>
-                        <div class="col-sm-8">
-                            <input class="form-control disabled" id="Registration_PIC_MAIL" name="Registration.PIC_MAIL" placeholder="Fill with active email" required="True" type="email" value="" />
-                            <span class="field-validation-valid text-danger" id="Registration_PIC_MAIL_validationMessage"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row required" id="sim">
-                        <label class="col-sm-4 form-control-label" for="DRIVER_LICENSES_B_II">DRIVER LICENSES B II</label>
-                        <div class="col-sm-3">
-                            <input class="form-control disabled" id="Registration_SIM" name="Registration.SIM" placeholder="Fill driver licenses number if any" required="True" type="text" value="" />
-                            <span class="field-validation-valid text-danger" id="Registration_SIM_validationMessage"></span>
-                        </div>
-                    </div>
-                    <div class="target"></div>
-                </div>
-            </div>
-            <div class="box-footer">
-                <div class="row pull-right">
-                    <div class="col-md-12">
-                        <button type="submit" id="process" class="btn btn-success submit">SUBMIT</button>
-                        <button type="button" class="btn btn-warning resetform">CLEAR</button>
-                    </div>
+                    </script>
                 </div>
             </div>
-</form><script type="text/javascript">
-
-</script>    </div>
-</div>
 
 
             <hr />
@@ -170,22 +162,20 @@
         </div>
     </div>
 
-    <script src="/FrontEndHSSE/Scripts/jquery-3.4.1.js"></script>
-
-    <script src="/FrontEndHSSE/Scripts/bootstrap.js"></script>
-
+    <script src="FrontEndHSSE/Scripts/jquery-3.4.1.js"></script>
+    <script src="FrontEndHSSE/Scripts/bootstrap.js"></script>
     <script>
         $('.active').removeClass('active');
         var currurl = window.location.pathname;
         var val = $('a[href="' + currurl + '"]').addClass('active');
     </script>
-    <script src="/FrontEndHSSE/Scripts/jquery-confirm.min.js"></script>
-    <script src="/FrontEndHSSE/Scripts/moment.js"></script>
-    <script src="/FrontEndHSSE/Scripts/bootstrap-datepicker.min.js"></script>
-    <script src="/FrontEndHSSE/Scripts/daterangepicker.js"></script>
-    <script src="/FrontEndHSSE/Scripts/datatables.min.js"></script>
-    <script src="/FrontEndHSSE/Scripts/lookup.js"></script>
-    
+    <script src="FrontEndHSSE/Scripts/jquery-confirm.min.js"></script>
+    <script src="FrontEndHSSE/Scripts/moment.js"></script>
+    <script src="FrontEndHSSE/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="FrontEndHSSE/Scripts/daterangepicker.js"></script>
+    <script src="FrontEndHSSE/Scripts/datatables.min.js"></script>
+    <script src="FrontEndHSSE/Scripts/lookup.js"></script>
+
     <script type="text/javascript">
         var klik = $('#process').on("click", function (event) {
 
@@ -227,29 +217,10 @@
                     }
                 })
             });
-            $('#txtCustomer').on('keypress', function (e) {
-                if (e.which == 13) {
-                    e.preventDefault();
-                    if (this.value == null && this.value == '') {
-                        lookup.alertError('Customer ID must be filled');
-                        return false;
-                    }
-                    document.getElementById("txtCustomer").readOnly = true;
-                    loadSyarat(this.value);
-                }
-            });
             $(".resetform").click(() => {
                 resetForm();
             });
         });
-
-        function searchCustomer(custid) {
-            if (custid == null && custid == '') {
-                lookup.alertError('Customer ID must be filled');
-                return false;
-            }
-            loadSyarat(custid);
-        }
 
         function resetForm() {
             document.getElementsByClassName('target')[0].innerHTML = "";
@@ -259,41 +230,6 @@
             $("#custName").html("-");
             $("#ddlcustomer, #ddldokumen").val("").trigger('change');
         }
-
-        function enabledfield(value) {
-            console.log(value);
-            if (value !== '') {
-                $("#regid").prop("disabled", false);
-            } else {
-                $("#regid").prop("disabled", true);
-            }
-        };
-        function loadSyarat(custid) {
-            $.ajax({
-                url: '/TRegistrasi/_DokumenSyarat',
-                data: { id: custid },
-                beforeSend: function () {
-                    $(".loading").show()
-                },
-                success: function (response) {
-                    if (custid !== "") {
-                        $(".loading").hide();
-                        $('div.target').html(response);
-                        $('.disabled').attr('disabled', false);
-                    } else {
-                        $(".loading").hide();
-                        $('div.target').empty();
-                        resetForm();
-                    }
-
-                },
-                error: function (xhr) {
-                    $(".loading").hide();
-                    resetForm();
-                    lookup.alertError("Customer Not Found");
-                }
-            });
-        };
     </script>
 
 

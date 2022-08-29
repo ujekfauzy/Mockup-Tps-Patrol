@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecurityPatrol - GSS TPS Online</title>
+    <link rel="icon" href="/FrontEndHSSE/Content/favicon.ico" />
+    <link href="FrontEndHSSE/Content/bootstrap.css" rel="stylesheet" />
+    <link href=FrontEndHSSE/Content/site.css" rel="stylesheet" />
+
+    <script src="FrontEndHSSE/Scripts/modernizr-2.8.3.js"></script>
+
+    <link href="FrontEndHSSE/Content/gss-custom.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/ScreenLoader.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/daterangepicker.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/datatables.min.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="FrontEndHSSE/Content/gss-css/gss-custom.css" rel="stylesheet" />
+    <style>
+        .bg {
+            /* The image used */
+            background-image: url('FrontEndHSSE/Content/images/bg/A_1.jpg');
+            /* Full height */
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        /* Style the buttons */
+        .btn {
+            font-size: 14px !important;
+            cursor: pointer;
+        }
+
+            .btn.active, .btn:hover {
+                color: #fff !important;
+            }
+
+        .logo {
+            height: 30px;
+            width: 100vh;
+            float: left;
+            padding: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg">
+    <div style="display:none" id="loadingPage" class="loading">Loading&#8230;</div>
+    <!--<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header" id="navdiv">
+                <a class="navbar-brand btn" href="/">SecurityPatrol</a>
+            </div>
+        </div>
+    </div>-->
+    <div class="container body-content">
+        <div class="container" style="margin-top:100px!important">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="height:150px;background-color:#fff">
+                    <table class="table table-bordered">
+                        <thead style="text-align: center;">
+                            <tr>
+                                <th class="tg-0lax" rowspan="2" style="text-align:center"> <img src="Content/Gambar/TPS-Logo.jpg" width="100" height="100" /></th>
+                                <th class="tg-9rkz" colspan="5" style="text-align: center; font-weight: bold; font-size: 32px; letter-spacing: 0.2em;">SECURITY PATROL</th>
+                            </tr>
+                            <tr>
+                                <td class="tg-baqh">dikeluarkan oleh : <br>SMI </td>
+                                <td class="tg-baqh">Tgl Efekti :<br>09 Oktober 2021</td>
+                                <td class="tg-baqh">Hal : 1 dari 1</td>
+                                <td class="tg-baqh">Terbatas</td>
+                                <td class="tg-baqh">Revisi : 01<br></td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <!--<div class="logo">
+                        <img src="Content/Gambar/TPS-Logo.jpg" />
+                    </div>-->
+                </div>
+                <div class="panel-body">
+                    <form action="/" class="form-horizontal" enctype="multipart/form-data" id="form" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="1_FxhGCLXINYl_yncUG9E3IUx6Ygl4Zq6mWZQwNNOB9i2e4xMMxFb9kZiLJOaLIu6vrKChAiCVqGZV9ni9J3ECHpXX4fJAnNw_e0cLZdbV81" />
+                        <div class="col-md-12">
+                            <span class="text-danger">
+                                <div class="validation-summary-valid" id="validationSummary">
+                                    <ul>
+                                        <li style="display:none"></li>
+                                    </ul>
+                                </div>
+                            </span>
+                            <div class="form-group">
+                                <label class="col-sm-4 form-control-label" for="event">Hari/Tgl/Shift</label>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="event" maxlength="5" name="Event" placeholder="Enter Hari/Tgl/Shift" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 form-control-label" for="event">Patroli Keamanan</label>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="event" maxlength="5" name="Event" placeholder="Enter Patroli Keamanan" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 form-control-label" for="event">Lokasi</label>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="event" maxlength="5" name="Event" placeholder="Enter Lokasi" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <table class="table table-bordered">
+                                    <thead style="background-color:darkgrey">
+                                        <tr>
+                                            <th style="text-align:center">No.</th>
+                                            <th style="text-align:center">Temuan</th>
+                                            <th style="text-align:center">Lokasi.</th>
+                                            <th style="text-align:center">Dokumentasi</th>
+                                            <th style="text-align:center">Keterangan</th>
+                                            <th style="text-align:center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-group">
+                                <table class="table table-bordered">
+                                    <thead style="background-color:darkgrey">
+                                        <tr>
+                                            <th colspan="4" style="text-align:center">Tindakan Pencegahan Perbaikan</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align:center">Rekomendasi</th>
+                                            <th style="text-align:center">Target</th>
+                                            <th style="text-align:center">Pencegahan</th>
+                                            <th style="text-align:center">Penyetujui</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-group">
+                              <p>* Salinan dikirim kepada MR dengan alamat <a href="#">komite.ISO@tps.co.id</a></p>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="row pull-right">
+                                <div class="col-md-12">
+                                    <button type="submit" id="process" class="btn btn-success submit">SUBMIT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr />
+            <footer>
+                <div style="position:center">
+                    <h3 style="color:white"><b> &copy; www.tps.co.id (1.08.06.2021) </b></h3>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="FrontEndHSSE/Scripts/jquery-3.4.1.js"></script>
+    <script src="FrontEndHSSE/Scripts/bootstrap.js"></script>
+    <script>
+        $('.active').removeClass('active');
+        var currurl = window.location.pathname;
+        var val = $('a[href="' + currurl + '"]').addClass('active');
+    </script>
+    <script src="FrontEndHSSE/Scripts/jquery-confirm.min.js"></script>
+    <script src="FrontEndHSSE/Scripts/moment.js"></script>
+    <script src="FrontEndHSSE/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="FrontEndHSSE/Scripts/daterangepicker.js"></script>
+    <script src="FrontEndHSSE/Scripts/datatables.min.js"></script>
+    <script src="FrontEndHSSE/Scripts/lookup.js"></script>
+
+    <script type="text/javascript">
+        var klik = $('#process').on("click", function (event) {
+
+            if ($("#form")[0].checkValidity()) {
+                $("#form").submit();
+                event.preventDefault();
+            }
+        });
+        $(document).ready((e) => {
+            $('.disabled').attr('disabled', true);
+            $("#form").bind('submit').on("submit", function (event) {
+                event.preventDefault();
+                var url = $(this).attr("action");
+                var formData = new FormData(this);
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: formData,
+                    dataType: "JSON",
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () {
+                        $(".loading").show()
+                    },
+                    complete: function () { $(".loading").hide(); },
+                    success: function (resp) {
+                        if (resp.success) {
+                            $(".loading").hide();
+                            lookup.alertSuccess(resp.message);
+                            resetForm();
+                        }
+                        else {
+                            $(".loading").hide();
+                            lookup.alertError(resp.message);
+                        }
+                    }, error: function (xhr) {
+                        $(".loading").hide();
+                        lookup.alertError(xhr.responseText);
+                    }
+                })
+            });
+            $(".resetform").click(() => {
+                resetForm();
+            });
+        });
+
+        function searchCustomer(custid) {
+            if (custid == null && custid == '') {
+                lookup.alertError('Customer ID must be filled');
+                return false;
+            }
+            loadSyarat(custid);
+        }
+
+        function resetForm() {
+            document.getElementsByClassName('target')[0].innerHTML = "";
+            document.getElementById("form").reset();
+            document.getElementById("txtCustomer").readOnly = false;
+            $('.disabled').attr('disabled', true);
+            $("#custName").html("-");
+            $("#ddlcustomer, #ddldokumen").val("").trigger('change');
+        }
+    </script>
+
+
+</body>
+</html>
